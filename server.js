@@ -26,7 +26,14 @@ db.on("error", function(error) {
   console.log("Database Error:", error);
 });
 
-mongoose.connect("mongodb://localhost/scraphomework", { useNewUrlParser: true });
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || ("mongodb://localhost/scraphomework", { useNewUrlParser: true });
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+
 
 // Create a generate all function
 // Retrieve data from the db
