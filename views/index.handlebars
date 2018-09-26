@@ -1,6 +1,6 @@
 {{!-- Customer side --}}
 
-<div class="flex-container">
+{{!-- <div class="flex-container">
   <div class="row">
     <span class="flex-item">
       <div class="container2">
@@ -24,27 +24,31 @@
         </div>
     </span>
   </div>
-</div>
+</div> --}}
 
 
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
     <title>Scraping Vox</title>
     {{!-- Links --}}
   </head>
-  <body>
+  <body> --}}
     <div id="wrapper">
       <h1>Note Scraper</h1>
       <h2><i>If you can do this...the homework should be no problem.</i></h2>
-      <div id="articles"></div>
+      <div id="articles">
+        {{#each article}}
+          <p> {{title}} </p>
+        {{/each}}
+      </div>
       <div id="notes"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="../public/assets/js/app.js"></script>
-  </body>
-</html>
+   <script src="/assets/js/app.js"></script>
+  {{!-- </body>
+</html> --}}
 
 
 

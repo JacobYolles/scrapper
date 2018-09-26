@@ -2,12 +2,14 @@ var express = require('express')
 var exphbs  = require('express-handlebars');
 var app = express();
 var mongoose = require("mongoose");
-var mongojs = require("mongojs");
+
 var bodyParser = require('body-parser')
 var cheerio = require("cheerio");
 var request = require("request");
 // var axios = require("axios");
 
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 var db = require("./models");
 var PORT = process.env.PORT || 3000;
@@ -18,22 +20,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 // Database configuration
-var databaseUrl = "scrapehome"
-var collections = ["scraphomework"]
 
-// Hook mongojs configuration to the db variable
-var db = mongojs(databaseUrl, collections);
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
+
+
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraphomework";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapehome"
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 // Create a generate all function
@@ -68,7 +65,7 @@ app.get("/scrape", function(req, res) {
       // If this found element had both a title and a link
       if (title && link) {
         // Insert the data in the scrapedData db
-        db.scraphomework.insert({
+        db.Article.create({
           title: title,
           link: link
         },
@@ -90,42 +87,15 @@ app.get("/scrape", function(req, res) {
   res.send("Scrape Complete");
 });
 
-// app.get("/scrape", function(req, res) {
-//   // First, we grab the body of the html with request
-//   axios.get("https://www.vox.com/world/").then(function(response) {
-//     // Then, we load that into cheerio and save it to $ for a shorthand selector
-//     var $ = cheerio.load(response.data);
-
-//     // Now, we grab every h2 within an article tag, and do the following:
-//     $("article h2").each(function(i, element) {
-//       // Save an empty result object
-//       var result = {};
-
-//       // Add the text and href of every link, and save them as properties of the result object
-//       result.title = $(this)
-//         .children("a")
-//         .text();
-//       result.link = $(this)
-//         .children("a")
-//         .attr("href");
-
-//       // Create a new Article using the `result` object built from scraping
-//       db.Article.create(result)
-//         .then(function(dbArticle) {
-//           // View the added result in the console
-//           console.log(dbArticle);
-//           res.json(dbArticle)
-//         })
-//         .catch(function(err) {
-//           // If an error occurred, send it to the client
-//           return res.json(err);
-//         });
-//     });
-
-//     // If we were able to successfully scrape and save an Article, send a message to the client
-//     res.send("Scrape Complete");
-//   });
-// });
+app.get("/", function(req, res) {
+  db.Article.find({})
+  .then(function(dbarticles) {
+    res.render("index", {
+     msg: "Thank you for scraping!",
+      article: dbarticles
+    });
+  });
+});
 
 // Start the server
 app.listen(PORT, function() {
