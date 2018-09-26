@@ -12,6 +12,7 @@ var request = require("request");
 var db = require("./models");
 var PORT = process.env.PORT || 3000;
 
+
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
