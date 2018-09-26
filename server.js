@@ -6,10 +6,16 @@ var mongojs = require("mongojs");
 var bodyParser = require('body-parser')
 var cheerio = require("cheerio");
 var request = require("request");
-var axios = require("axios");
+// var axios = require("axios");
 
-var PORT = 3000;
 
+var db = require("./models");
+var PORT = process.env.PORT || 3000;
+
+// Use body-parser for handling form submissions
+app.use(bodyParser.urlencoded({ extended: true }));
+// Use express.static to serve the public folder as a static directory
+app.use(express.static("public"));
 // Database configuration
 var databaseUrl = "scrapehome"
 var collections = ["scraphomework"]

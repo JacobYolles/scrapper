@@ -4,6 +4,7 @@
   "description": "homework scrapping a website",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "nodemon server.js"
   },
   "repository": {
