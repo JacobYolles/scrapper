@@ -1,62 +1,55 @@
-{{!-- Customer side --}}
-
-{{!-- <div class="flex-container">
-  <div class="row">
-    <span class="flex-item">
-      <div class="container2">
-        <div class="container">
-          <div class="card" style="width: 40rem; height: auto;">
-            <div class="card-header">
-              <h3 class="h3Head">{{msg}}</h3>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title cardhead">Please pick the service you are interested in.</h5>
-              <p class="card-text">Services:</p>
-              <ul id="article-list" class="list-group">
-                {{#each article}}
-                <li data-id="{{this.id}}" class="list-group-item">
-                  <li data-id="{{this.id}}"> {{this.title}} {{this.link}}</li>
-                </li>
-                {{/each}}
-              </ul>
-            </div>
-          </div>
-        </div>
-    </span>
-  </div>
-</div> --}}
 
 
-{{!-- <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Scraping Vox</title>
-    {{!-- Links --}}
-  </head>
-  <body> --}}
+
+<style>
+      body { background-color: #F2F6D0 }
+      #wrapper {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5%;
+      }
+      #articles {
+        display: inline-block;
+        overflow: auto;
+        width: 60%;
+        height: 700px;
+      }
+      #notes {
+        float: right;
+        width: 30%;
+      }
+      textarea, input {
+        display: block;
+        width: 100%;
+        background-color: #FCF5C7;
+      }
+      input {
+        height: 36px;
+        font-size: 24px;
+      }
+      textarea {
+        height: 200px;
+        font-size: 18px;
+      }
+    </style>
+
+
     <div id="wrapper">
-      <h1>Note Scraper</h1>
-      <h2><i>If you can do this...the homework should be no problem.</i></h2>
+      <h1>Vox Scrapper</h1>
+      <h2><i>Scrapping the worlds news.</i></h2>
       <div id="articles">
-        {{#each article}}
-          <p> {{title}} </p>
+     
+        {{#each articles}}
+         <p>{{title}} {{link}}</p>
+        
         {{/each}}
       </div>
       <div id="notes"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="/assets/js/app.js"></script>
-  {{!-- </body>
-</html> --}}
+  
 
 
 
-{{!-- <strong>ID</strong>: {{hair.id}}</p>
-<strong>Service Provided</strong>: {{Hair.service_provided}}</p>
-<ul>
-  {{#each hair}}
-  {{> hair/hair-block}}
-  {{/each}}
-
-</ul> --}}
