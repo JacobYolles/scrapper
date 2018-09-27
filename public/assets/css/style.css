@@ -13,6 +13,7 @@
         height: 700px;
       }
       #notes {
+        position: initial;
         float: right;
         width: 30%;
       }
@@ -28,4 +29,10 @@
       textarea {
         height: 200px;
         font-size: 18px;
+      }
+
+
+      .blockInner {
+        background-color: blue;
+        color: blue;
       }
