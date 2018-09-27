@@ -33,6 +33,8 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
+
+////////////////////////////////CREATING ROUTES FOR DISPLAYING DATA AND MOVING TO POINTS.////////////////////////////////////////////////
 // Create a generate all function
 // Retrieve data from the db
 app.get("/all", function(req, res) {
@@ -170,6 +172,8 @@ app.post("/articles/:id", function(req, res) {
   // and update it's "note" property with the _id of the new note
 });
 
+
+////////////////////////////////////////////////CREATE THE LISTENING SERVER////////////////////////////////////////////////////////////////
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
