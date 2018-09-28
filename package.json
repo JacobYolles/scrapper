@@ -1,28 +1,8 @@
 {
   "name": "scrapper",
   "version": "1.0.0",
-  "description": "homework scrapping a website",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js",
-    "test": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JacobYolles/scrapper.git"
-  },
-  "keywords": [
-    "homework",
-    "jake",
-    "yolles",
-    "mongo"
-  ],
-  "author": "Jake Yolles",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JacobYolles/scrapper/issues"
-  },
-  "homepage": "https://github.com/JacobYolles/scrapper#readme",
+  "description": "homework",
+  "main": "node server.js",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -34,5 +14,25 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.4",
     "request": "^2.88.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobYolles/scrapper.git"
+  },
+  "keywords": [
+    "Homework",
+    "Jake",
+    "Yolles"
+  ],
+  "author": "Jake Yolles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobYolles/scrapper/issues"
+  },
+  "homepage": "https://github.com/JacobYolles/scrapper#readme"
 }
