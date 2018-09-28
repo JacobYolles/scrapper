@@ -29,7 +29,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapehome"
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
@@ -206,6 +206,8 @@ app.delete("/articles/:id", function (req, res) {
 });
 ////////////////////////////////////////////////CREATE THE LISTENING SERVER////////////////////////////////////////////////////////////////
 // Start the server
+
+
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
