@@ -2,7 +2,7 @@
   "name": "scrapper",
   "version": "1.0.0",
   "description": "homework",
-  "main":  "server.js",
+  "main": "server.js",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -32,5 +32,3 @@
   },
   "homepage": "https://github.com/JacobYolles/scrapper#readme"
 }
-
-
