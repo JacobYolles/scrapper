@@ -33,7 +33,6 @@ var MONGODB_URI = "mongodb://rick:vKdpc8LZWEwzxGu!@ds115283.mlab.com:15283/herok
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
-
 ////////////////////////////////CREATING ROUTES FOR DISPLAYING DATA AND MOVING TO POINTS.////////////////////////////////////////////////
 // Create a generate all function
 // Retrieve data from the db
