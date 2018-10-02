@@ -23,13 +23,15 @@ app.use(express.static("public"));
 
 
 
+
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = "mongodb://<JacobY>:<limelimelime3>@ds115283.mlab.com:15283/heroku_d3t0l8bk"
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapehome"
 // process.env.MONGODB_URI
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 // mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
 
 
 ////////////////////////////////CREATING ROUTES FOR DISPLAYING DATA AND MOVING TO POINTS.////////////////////////////////////////////////
